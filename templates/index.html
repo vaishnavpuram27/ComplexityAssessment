@@ -14,21 +14,21 @@
    
 </div>
   
-<form class="px-5 p-3">
+<form class="px-5 p-3" method="post" action="predict">
 
   <div class="mb-3 p-1">
     <label for="labelName1" class="form-label">
         Q1) Please Enter 1 if the Application used in your Use Case is in the Exception List, else please Enter 0 -
     </label>
-    <input type="email" class="form-control" id="labelName1" aria-describedby="labelName1" required>
+    <input type="text" class="form-control" id="labelName1" aria-describedby="labelName1" name = "Q1"required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName2" class="form-label">Q2) Please Enter the Number of GUI screens to be traversed - </label>
-    <input type="email" class="form-control" id="labelName2" aria-describedby="labelName2" required>
+    <input type="text" class="form-control" id="labelName2" aria-describedby="labelName2" name="Q2" required>
   </div>
   
-  <div class="mb-3 p-1">
+  <!-- <div class="mb-3 p-1">
     <label for="labelName3" class="form-label">Q3) Please Enter The Number of Manual Steps (Click, Read and Write) -</label>
     <input type="email" class="form-control" id="labelName3" aria-describedby="labelName3" required>
   </div>
@@ -81,10 +81,10 @@
   <div class="mb-3 p-1">
     <label for="labelName13" class="form-label">Q13) Do you require any backend scripting? Enter 1 for yes and 0 for No -</label>
     <input type="email" class="form-control" id="labelName13" aria-describedby="labelName13" required>
-  </div>
+  </div> -->
   
   
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <input type="submit" class="btn btn-primary" value="Predict">
 </form>
 </div>
 
