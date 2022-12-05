@@ -5,6 +5,7 @@
 *.pyo
 env/
 complex_venv/
+__pycache__
 venv/
 .venv/
 env*
