@@ -4,8 +4,7 @@
   <title>Complexity Assessment</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 
@@ -14,77 +13,76 @@
    
 </div>
   
-<form class="px-5 p-3" method="post" action="predict">
+<form class="px-5 p-3" action="predict" method="post">
 
   <div class="mb-3 p-1">
     <label for="labelName1" class="form-label">
         Q1) Please Enter 1 if the Application used in your Use Case is in the Exception List, else please Enter 0 -
     </label>
-    <input type="text" class="form-control" id="labelName1" aria-describedby="labelName1" name = "Q1"required>
+    <input name="q1" type="text" class="form-control" id="labelName1" aria-describedby="labelName1" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName2" class="form-label">Q2) Please Enter the Number of GUI screens to be traversed - </label>
-    <input type="text" class="form-control" id="labelName2" aria-describedby="labelName2" name="Q2" required>
+    <input name="q2" type="text" class="form-control" id="labelName2" aria-describedby="labelName2" required>
   </div>
-  
-  <!-- <div class="mb-3 p-1">
+  --
+  <div class="mb-3 p-1">
     <label for="labelName3" class="form-label">Q3) Please Enter The Number of Manual Steps (Click, Read and Write) -</label>
-    <input type="email" class="form-control" id="labelName3" aria-describedby="labelName3" required>
+    <input name="q3" type="text" class="form-control" id="labelName3" aria-describedby="labelName3" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName4" class="form-label">Q4) Enter the Time taken for each transaction in minutes (average out any pre and post activity with the number of transactions) -</label>
-    <input type="email" class="form-control" id="labelName4" aria-describedby="labelName4" required>
+    <input name="q4" type="text" class="form-control" id="labelName4" aria-describedby="labelName4" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName5" class="form-label">Q5) Please enter the Type of Target Application Access. Enter 0 if It is Direct Application and 1 if it is Remote -</label>
-    <input type="email" class="form-control" id="labelName5" aria-describedby="labelName5" required>
+    <input name="q5" type="text" class="form-control" id="labelName5" aria-describedby="labelName5" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName6" class="form-label">Q6) Please Enter the Expected Volume of Transactions per run (Average per run, divide by the number of transactions) -</label>
-    <input type="email" class="form-control" id="labelName6" aria-describedby="labelName6" required>
+    <input name="q6" type="text" class="form-control" id="labelName6" aria-describedby="labelName6" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName7" class="form-label">Q7) Please Enter the Expected FTE workload (1,2,3, etc.) - </label>
-    <input type="email" class="form-control" id="labelName7" aria-describedby="labelName7" required>
+    <input name="q7" type="text" class="form-control" id="labelName7" aria-describedby="labelName7" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName8" class="form-label">Q8) Enter 0 if there is no strict SLA, 1 if there is SLA -</label>
-    <input type="email" class="form-control" id="labelName8" aria-describedby="labelName8" required>
+    <input name="q8" type="text" class="form-control" id="labelName8" aria-describedby="labelName8" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName9" class="form-label">Q9) Please Enter The Stability of the Target Applications, Enter 0 if the applications are high stability and 1 if it is Low -</label>
-    <input type="email" class="form-control" id="labelName9" aria-describedby="labelName9" required>
+    <input name="q9" type="text" class="form-control" id="labelName9" aria-describedby="labelName9" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName10" class="form-label"> Q10) Please Enter the Number of known business workflows -</label>
-    <input type="email" class="form-control" id="labelName10" aria-describedby="labelName10" required>
+    <input name="q10" type="text" class="form-control" id="labelName10" aria-describedby="labelName10" required>
   </div>
   
   <div class="mb-3 p-1">
     <label for="labelName11" class="form-label">Q11) Please Enter the Number of known business exceptions -</label>
-    <input type="email" class="form-control" id="labelName11" aria-describedby="labelName11" required>
+    <input name="q11" type="text" class="form-control" id="labelName11" aria-describedby="labelName11" required>
   </div>
 
   <div class="mb-3 p-1">
     <label for="labelName12" class="form-label">Q12) Does your Use Case Require NLP, ML, API, iOCR, Interact and other integration with RPA? Please Enter 1 if Yes, else Enter 0 -</label>
-    <input type="email" class="form-control" id="labelName12" aria-describedby="labelName12" required>
+    <input name="q12" type="text" class="form-control" id="labelName12" aria-describedby="labelName12" required>
   </div>
 
   <div class="mb-3 p-1">
     <label for="labelName13" class="form-label">Q13) Do you require any backend scripting? Enter 1 for yes and 0 for No -</label>
-    <input type="email" class="form-control" id="labelName13" aria-describedby="labelName13" required>
-  </div> -->
+    <input  name="q13" type="text" class="form-control" id="labelName13" aria-describedby="labelName13" required>
+  </div>
   
-  
-  <input type="submit" class="btn btn-primary" value="Predict">
+  <button name="submit" type="submit" value="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
