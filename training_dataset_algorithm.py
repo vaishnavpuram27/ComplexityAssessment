@@ -364,7 +364,7 @@ def main(q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13):
         flag_overriding = 0
         
         if any(y == 1 for y in reason_overriding):
-            overriding_reason= overriding_reason+str(count)+' The Application used in your Use Case has been categorized as Complex'+'\n'
+            overriding_reason= overriding_reason+str(count)+' The Application used in your Use Case has been categorized as Complex.'+'\n'
             count = count+1
             flag_overriding = 1
             #print("\n OverRiding Parameter for your Use Case- The Application used in your Use Case has been categorized as Complex \n Overall Complexity of your Use Case has been predicted as -----> Complex")
@@ -395,13 +395,14 @@ def main(q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13):
             #print("\n Overwriting Parameter for your Use Case: The Use Case saves 4 or Greater than 4 FTE Workload \n Overall Complexity of your Use Case has been predicted as --- Complex")
         
         elif (any(y == 13 for y in reason_overriding) and flag_overriding==0):
-            overriding_reason=f" Overwriting Parameter for your Use Case: Scripting Needed, Hence OverWriting Parameter Complexity ----- Medium "
+            overriding_reason=f" OverRiding Parameter for your Use Case: Scripting Needed, Hence OverRiding Parameter Complexity ----- Medium "
             if((y_kmeans_pred==0) or (y_kmeans_pred==1)):
                 print("\n Overall Complexity for Use Case is Predicted as Medium")
                 dev_days_statement= f"As Scripting would be required for your use case, hence total number of development days is estimated between 30-40 days or 6-8 weeks"
             else:
                 print("\n Overall Complexity for your Use Case is predicated as Complex")
-                dev_days_statement = f" The Number of Development Days assigned for your use case is close to {weeks_predicted}-{weeks_predicted+1} weeks or close to {int(dev_days_predict)} - {int(dev_days_predict)+5} days\n However, As there are overriding parameters in your use case, hence total number of development days is estimated between 10-12 weeks"
+                dev_days_statement = f" The Number of Development Days assigned for your use case is close to {weeks_predicted}-{weeks_predicted+1} weeks or close to {int(dev_days_predict)} - {int(dev_days_predict)+5} days"
+
 
         if flag_overriding==1:
             overriding_reason = overriding_reason+' Overall Complexity for your Use Case -----> Complex'+'\n'

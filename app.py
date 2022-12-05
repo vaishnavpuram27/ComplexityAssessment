@@ -26,16 +26,20 @@ def predict():
     business_exceptions = (request.form.get("q11"))
     integration_required = (request.form.get("q12"))
     complex_methods_used = (request.form.get("q13"))
-    
+    useCaseName = (request.form.get("UseCaseName"))
+    bizStream = (request.form.get("BizStream"))
+    bizAnalyst = (request.form.get("BizAnalyst"))
+    seniorDev = (request.form.get("SeniorDev"))
+    #useCaseName,bizStream,bizAnalyst,seniorDev
     process_specific_complexity,overriding_parameter_present,overriding_reason,dev_days_statement=main(complex_application_check,number_of_gui_screens,number_of_manual_steps,amount_of_time,type_of_application,expected_volume,expected_fte_workload,sla_time,stability_of_application,business_workflows,business_exceptions,integration_required,complex_methods_used)
     
     
     if(overriding_parameter_present):
         
         overriding_parameter_text = "There are OverRiding Parameters in your Use Case"
-        return render_template('predict.html',val = [process_specific_complexity,overriding_parameter_text,overriding_reason,dev_days_statement])
+        return render_template('predict.html',val = [complex_application_check,number_of_gui_screens,number_of_manual_steps,amount_of_time,type_of_application,expected_volume,expected_fte_workload,sla_time,stability_of_application,business_workflows,business_exceptions,integration_required,complex_methods_used,process_specific_complexity,overriding_parameter_text,overriding_reason,dev_days_statement,useCaseName,bizStream,bizAnalyst,seniorDev])
     else:
         
         overriding_parameter_text = f"There are No OverRiding Parameters in your Use Case"
-        return render_template('predict.html',val = [process_specific_complexity,overriding_parameter_text,overriding_reason,dev_days_statement])
+        return render_template('predict.html',val = [complex_application_check,number_of_gui_screens,number_of_manual_steps,amount_of_time,type_of_application,expected_volume,expected_fte_workload,sla_time,stability_of_application,business_workflows,business_exceptions,integration_required,complex_methods_used,process_specific_complexity,overriding_parameter_text,overriding_reason,dev_days_statement,useCaseName,bizStream,bizAnalyst,seniorDev])
 

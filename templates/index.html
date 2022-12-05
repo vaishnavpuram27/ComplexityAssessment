@@ -4,16 +4,95 @@
   <title>Complexity Assessment</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
+
+<style>
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #19a589;
+    color: white;
+    padding: 20px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: medium;
+    font-weight: 600;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #1abc9c;
+  }
+  
+  div {
+    border-radius: 5px;
+    font-family: Helvetica, sans-serif;
+    padding: 14px;
+  }
+  .header {
+  padding: 2px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+.info{
+  padding: 2px;
+  background: #169c81;
+  color: white;
+}
+  </style>
+
 <body>
 
-<div class="container-fluid p-3 bg-danger text-white text-center">
+<div class="header">
   <h1>Complexity Assessment</h1>
    
 </div>
+<br>
   
 <form class="px-5 p-3" action="predict" method="post">
+
+  <div class="info">
+
+    <div>
+      <label for="UseCaseName" class="form-label">
+        Use Case name -
+      </label>
+      <input name="UseCaseName" type="text" class="form-control" id="UseCaseName" aria-describedby="UseCaseName" required>
+    </div>
+
+    <div>
+      <label for="BizStream" class="form-label">
+        Business Stream -
+      </label>
+      <input name="BizStream" type="text" class="form-control" id="BizStream" aria-describedby="BizStream" required>
+    </div>
+
+    <div>
+      <label for="BizAnalyst" class="form-label">
+        Business Analyst -
+      </label>
+      <input name="BizAnalyst" type="text" class="form-control" id="BizAnalyst" aria-describedby="BizAnalyst" required>
+    </div>
+
+    <div>
+      <label for="SeniorDev" class="form-label">
+        Senior Developer of your Business Stream -
+      </label>
+      <input name="SeniorDev" type="text" class="form-control" id="SeniorDev" aria-describedby="SeniorDev" required>
+    </div>
+
+  </div>
 
   <div class="mb-3 p-1">
     <label for="labelName1" class="form-label">
@@ -26,7 +105,7 @@
     <label for="labelName2" class="form-label">Q2) Please Enter the Number of GUI screens to be traversed - </label>
     <input name="q2" type="text" class="form-control" id="labelName2" aria-describedby="labelName2" required>
   </div>
-  --
+  
   <div class="mb-3 p-1">
     <label for="labelName3" class="form-label">Q3) Please Enter The Number of Manual Steps (Click, Read and Write) -</label>
     <input name="q3" type="text" class="form-control" id="labelName3" aria-describedby="labelName3" required>
@@ -82,8 +161,8 @@
     <input  name="q13" type="text" class="form-control" id="labelName13" aria-describedby="labelName13" required>
   </div>
   
-  <button name="submit" type="submit" value="submit" class="btn btn-primary">Submit</button>
-</form>
+  <input name="submit" type="submit" value="SUBMIT" class="btn btn-primary">
+
 </div>
 
 </body>
