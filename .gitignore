@@ -19,7 +19,7 @@ build/
 .idea/
 docs/_build/
 .vscode
-
+.github
 
 # Coverage reports
 htmlcov/

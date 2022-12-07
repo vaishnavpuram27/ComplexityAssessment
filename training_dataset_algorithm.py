@@ -273,7 +273,7 @@ def main(q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13):
 
     #For ignoring the warnings on the console window, putting in the below code
     # warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
-    warnings.filterwarnings(action='ignore', category=DataConversionWarning)
+    # warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
     #Creating Pandas Dataframes for Fully Scaled Data and Intermediate Data before Scaling but after Data Pre-processing has completed
     transformed_use_case = pd.read_csv('transformed_data.csv')

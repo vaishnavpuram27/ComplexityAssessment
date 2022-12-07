@@ -6,7 +6,7 @@ from numpy import mean
 from numpy import std
 from scipy import stats
 import warnings
-from pandas.core.common import SettingWithCopyWarning
+# from pandas.core.common import SettingWithCopyWarning
 
 def remove_outliers_GUI_Screens(X):
 	flag_value = 0
@@ -105,7 +105,7 @@ def remove_outliers_Business_exception(X):
 	return(X)
 
 def main():
-	warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+	# warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 	use_case = pd.read_csv("dataset_complexity.csv")
 	X = use_case[['GUI_screens','manual_steps','transaction_time','volume','FTE','SLA','Decision_points','Business_exception']]
 	X = remove_outliers_GUI_Screens(X)
