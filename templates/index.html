@@ -1,169 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Complexity Assessment</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <style>
-  input[type=text], select {
-    width: 100%;
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  input[type=text],
+  select {
+    width: 25%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 30px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
+    background-color: rgb(243, 243, 243);
   }
-  
+
   input[type=submit] {
-    width: 100%;
-    background-color: #19a589;
+    width: 20%;
+    background-color: rgb(46, 44, 44);
     color: white;
     padding: 20px 20px;
-    margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: medium;
     font-weight: 600;
+    margin: auto;
   }
-  
+
   input[type=submit]:hover {
-    background-color: #1abc9c;
+    background-color: #000000;
   }
-  
+
   div {
     border-radius: 5px;
     font-family: Helvetica, sans-serif;
-    padding: 14px;
+    padding: 14px 10px;
   }
+
   .header {
-  padding: 2px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
+    padding: 2px 10px;
+    text-align: center;
+    color: rgb(46, 44, 44);
+  }
+
+  .info {
+    padding: 2px;
+    color: rgb(49, 49, 49);
+    width: 60%;
+    margin: auto;
+  }
+
+  label {
+    width: 50%;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: rgb(49, 49, 49);
+  }
+  hr.solid {
+    border-top: 3px solid;
+    background: black;
+  }
+  .queries{
+    width: 80%;
+    margin: auto;
 }
-.info{
-  padding: 2px;
-  background: #169c81;
-  color: white;
+.submitButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-  </style>
+
+
+  @media screen and (max-width: 700px) {
+
+    input[type=text],
+    select {
+      width: 90%;
+      padding: 12px 20px;
+      margin: 8px 0px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    label {
+      width: 80%;
+
+    }
+  }
+</style>
 
 <body>
 
-<div class="header">
-  <h1>Complexity Assessment</h1>
-   
-</div>
-<br>
-  
-<form class="px-5 p-3" action="predict" method="post">
+  <div class="header">
+    <h1>Complexity Assessment</h1>
+    <hr class="solid">
+  </div>
 
-  <div class="info">
 
-    <div>
-      <label for="UseCaseName" class="form-label">
-        Use Case name -
-      </label>
-      <input name="UseCaseName" type="text" class="form-control" id="UseCaseName" aria-describedby="UseCaseName" required>
+  <div class="header">
+    <h2>Details</h2>
+
+  </div>
+
+  <form class="formClass" action="predict" method="post">
+
+    <div class="info">
+
+      <div class="inputField">
+        <label for="UseCaseName" class="form-label">
+          <h3>Use Case name</h3>
+        </label>
+        <input name="UseCaseName" type="text" class="form-control" id="UseCaseName" aria-describedby="UseCaseName"
+          required>
+      </div>
+
+      <div>
+        <label for="BizStream" class="form-label">
+          <h3>Business Stream</h3>
+        </label>
+        <input name="BizStream" type="text" class="form-control" id="BizStream" aria-describedby="BizStream" required>
+      </div>
+
+      <div>
+        <label for="BizAnalyst" class="form-label">
+          <h3>Business Analyst</h3>
+        </label>
+        <input name="BizAnalyst" type="text" class="form-control" id="BizAnalyst" aria-describedby="BizAnalyst"
+          required>
+      </div>
+
+      <div>
+        <label for="SeniorDev" class="form-label">
+          <h3>Senior Developer of your Business Stream</h3>
+        </label>
+        <input name="SeniorDev" type="text" class="form-control" id="SeniorDev" aria-describedby="SeniorDev" required>
+      </div>
+    </div>
+    <div class="header">
+      <hr class="solid">
+      <br>
+      <h2>Queries</h2>
     </div>
 
-    <div>
-      <label for="BizStream" class="form-label">
-        Business Stream -
+ <div class="queries">
+    <div class="inputField">
+      <label for="labelName1" class="form-label">
+        Enter 1 if the Application used in your Use Case is in the Exception List, else please Enter 0
       </label>
-      <input name="BizStream" type="text" class="form-control" id="BizStream" aria-describedby="BizStream" required>
+      <input name="q1" type="text" class="form-control" id="labelName1" aria-describedby="labelName1" required>
     </div>
 
-    <div>
-      <label for="BizAnalyst" class="form-label">
-        Business Analyst -
-      </label>
-      <input name="BizAnalyst" type="text" class="form-control" id="BizAnalyst" aria-describedby="BizAnalyst" required>
+    <div class="inputField">
+      <label for="labelName2" class="form-label">Number of GUI screens to be traversed</label>
+      <input name="q2" type="text" class="form-control" id="labelName2" aria-describedby="labelName2" required>
     </div>
 
-    <div>
-      <label for="SeniorDev" class="form-label">
-        Senior Developer of your Business Stream -
-      </label>
-      <input name="SeniorDev" type="text" class="form-control" id="SeniorDev" aria-describedby="SeniorDev" required>
+    <div class="inputField">
+      <label for="labelName3" class="form-label">Number of Manual Steps (Click, Read and Write)
+        </label>
+      <input name="q3" type="text" class="form-control" id="labelName3" aria-describedby="labelName3" required>
     </div>
 
-  </div>
+    <div class="inputField">
+      <label for="labelName4" class="form-label">Time taken for each transaction in minutes (average out
+        any pre and post activity with the number of transactions)</label>
+      <input name="q4" type="text" class="form-control" id="labelName4" aria-describedby="labelName4" required>
+    </div>
 
-  <div class="mb-3 p-1">
-    <label for="labelName1" class="form-label">
-        Q1) Please Enter 1 if the Application used in your Use Case is in the Exception List, else please Enter 0 -
-    </label>
-    <input name="q1" type="text" class="form-control" id="labelName1" aria-describedby="labelName1" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName2" class="form-label">Q2) Please Enter the Number of GUI screens to be traversed - </label>
-    <input name="q2" type="text" class="form-control" id="labelName2" aria-describedby="labelName2" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName3" class="form-label">Q3) Please Enter The Number of Manual Steps (Click, Read and Write) -</label>
-    <input name="q3" type="text" class="form-control" id="labelName3" aria-describedby="labelName3" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName4" class="form-label">Q4) Enter the Time taken for each transaction in minutes (average out any pre and post activity with the number of transactions) -</label>
-    <input name="q4" type="text" class="form-control" id="labelName4" aria-describedby="labelName4" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName5" class="form-label">Q5) Please enter the Type of Target Application Access. Enter 0 if It is Direct Application and 1 if it is Remote -</label>
-    <input name="q5" type="text" class="form-control" id="labelName5" aria-describedby="labelName5" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName6" class="form-label">Q6) Please Enter the Expected Volume of Transactions per run (Average per run, divide by the number of transactions) -</label>
-    <input name="q6" type="text" class="form-control" id="labelName6" aria-describedby="labelName6" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName7" class="form-label">Q7) Please Enter the Expected FTE workload (1,2,3, etc.) - </label>
-    <input name="q7" type="text" class="form-control" id="labelName7" aria-describedby="labelName7" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName8" class="form-label">Q8) Enter 0 if there is no strict SLA, 1 if there is SLA -</label>
-    <input name="q8" type="text" class="form-control" id="labelName8" aria-describedby="labelName8" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName9" class="form-label">Q9) Please Enter The Stability of the Target Applications, Enter 0 if the applications are high stability and 1 if it is Low -</label>
-    <input name="q9" type="text" class="form-control" id="labelName9" aria-describedby="labelName9" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName10" class="form-label"> Q10) Please Enter the Number of known business workflows -</label>
-    <input name="q10" type="text" class="form-control" id="labelName10" aria-describedby="labelName10" required>
-  </div>
-  
-  <div class="mb-3 p-1">
-    <label for="labelName11" class="form-label">Q11) Please Enter the Number of known business exceptions -</label>
-    <input name="q11" type="text" class="form-control" id="labelName11" aria-describedby="labelName11" required>
-  </div>
+    <div class="inputField">
+      <label for="labelName5" class="form-label">Enter the Type of Target Application Access. Enter 0 if It
+        is Direct Application and 1 if it is Remote</label>
+      <input name="q5" type="text" class="form-control" id="labelName5" aria-describedby="labelName5" required>
+    </div>
 
-  <div class="mb-3 p-1">
-    <label for="labelName12" class="form-label">Q12) Does your Use Case Require NLP, ML, API, iOCR, Interact and other integration with RPA? Please Enter 1 if Yes, else Enter 0 -</label>
-    <input name="q12" type="text" class="form-control" id="labelName12" aria-describedby="labelName12" required>
-  </div>
+    <div class="inputField">
+      <label for="labelName6" class="form-label">Expected Volume of Transactions per run (Average
+        per run, divide by the number of transactions)</label>
+      <input name="q6" type="text" class="form-control" id="labelName6" aria-describedby="labelName6" required>
+    </div>
 
-  <div class="mb-3 p-1">
-    <label for="labelName13" class="form-label">Q13) Do you require any backend scripting? Enter 1 for yes and 0 for No -</label>
-    <input  name="q13" type="text" class="form-control" id="labelName13" aria-describedby="labelName13" required>
+    <div class="inputField">
+      <label for="labelName7" class="form-label">Enter the Expected FTE workload (1,2,3, etc.)</label>
+      <input name="q7" type="text" class="form-control" id="labelName7" aria-describedby="labelName7" required>
+    </div>
+
+    <div class="inputField">
+      <label for="labelName8" class="form-label">Enter 0 if there is no strict SLA, 1 if there is SLA</label>
+      <input name="q8" type="text" class="form-control" id="labelName8" aria-describedby="labelName8" required>
+    </div>
+
+    <div class="inputField">
+      <label for="labelName9" class="form-label">Stability of the Target Applications, Enter 0 if
+        the applications are high stability and 1 if it is Low</label>
+      <input name="q9" type="text" class="form-control" id="labelName9" aria-describedby="labelName9" required>
+    </div>
+
+    <div class="inputField">
+      <label for="labelName10" class="form-label">Number of known business workflows</label>
+      <input name="q10" type="text" class="form-control" id="labelName10" aria-describedby="labelName10" required>
+    </div>
+
+    <div class="inputField">
+      <label for="labelName11" class="form-label">Number of known business exceptions</label>
+      <input name="q11" type="text" class="form-control" id="labelName11" aria-describedby="labelName11" required>
+    </div>
+
+    <div class="inputField">
+      <label for="labelName12" class="form-label">Does your Use Case Require NLP, ML, API, iOCR, Interact and other
+        integration with RPA? Please Enter 1 if Yes, else Enter 0</label>
+      <input name="q12" type="text" class="form-control" id="labelName12" aria-describedby="labelName12" required>
+    </div>
+
+    <div class="inputField">
+      <label for="labelName13" class="form-label">Do you require any backend scripting? Enter 1 for yes and 0 for
+        No</label>
+      <input name="q13" type="text" class="form-control" id="labelName13" aria-describedby="labelName13" required>
+    </div>
   </div>
   
-  <input name="submit" type="submit" value="SUBMIT" class="btn btn-primary">
-
-</div>
+  
+  <input name="submit" type="submit" value="SUBMIT" class="submitButton">
+</form>
+    </div>
 
 </body>
+
 </html>
