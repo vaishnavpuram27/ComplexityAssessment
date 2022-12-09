@@ -1,6 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Complexity Assessment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
   
+    body{
+    background-color: #FAF8F1;
+  }
     input[type=text],
     select {
       width: 25%;
@@ -10,7 +25,7 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       box-sizing: border-box;
-      background-color: rgb(243, 243, 243);
+      background-color: #FAF8F1;
     }
   
     input[type=submit] {
@@ -106,6 +121,8 @@
     }
   </style>
 
+<body>
+  
 
 <div class="header">
   <h1>Complexity Assessment</h1>
@@ -122,6 +139,14 @@
     <h4>Business Analyst -  {{ val[19] }}</h4>
     <h4>Senior Developer of your Business Stream -  {{ val[20] }}</h4>
     
+</div>
+<div class="header"><hr class="solid"><h2>Prediction</h2></div>
+
+<div class="header2">
+<h4>{{ val[14] }}</h4>
+<h4>{{ val[15] }}</h4>
+<h4>The Overall Complexity of the use case predicted is {{ val[13] }}</h4>
+<h4>{{ val[16] }}</h4>
 </div>
 <div class="header"><hr class="solid"></div>
 <div class="header">
@@ -203,14 +228,7 @@
 
 </form>
 
-<div class="header"><hr class="solid"><h2>Prediction</h2></div>
 
-<div class="header2">
-<h4>{{ val[14] }}</h4>
-<h4>{{ val[15] }}</h4>
-<h4>The Overall Complexity of the use case predicted is {{ val[13] }}</h4>
-<h4>{{ val[16] }}</h4>
-</div>
 
 <div>
 
@@ -221,3 +239,4 @@
     </button>
   
   </div>
+</body>
