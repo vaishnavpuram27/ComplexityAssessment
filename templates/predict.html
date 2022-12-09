@@ -1,152 +1,222 @@
 <style>
-  input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: #ccc;
-  }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
   
-  button {
-    width: 100%;
-    background-color: #19a589;
+    input[type=text],
+    select {
+      width: 25%;
+      padding: 12px 20px;
+      margin: 8px 30px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      background-color: rgb(243, 243, 243);
+    }
+  
+    input[type=submit] {
+      width: 20%;
+      background-color: rgb(46, 44, 44);
+      color: white;
+      padding: 20px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: medium;
+      font-weight: 600;
+      margin: auto;
+    }
+  
+    input[type=submit]:hover {
+      background-color: #000000;
+    }
+  
+    div {
+      border-radius: 5px;
+      font-family: Helvetica, sans-serif;
+      padding: 14px 10px;
+    }
+  
+    .header {
+      padding: 2px 10px;
+      text-align: center;
+      color: rgb(46, 44, 44);
+    }
+  
+    .info {
+      padding: 2px;
+      color: rgb(49, 49, 49);
+      width: 60%;
+      margin: auto;
+    }
+  
+    label {
+      width: 50%;
+      display: inline-block;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: bold;
+      color: rgb(49, 49, 49);
+    }
+    hr.solid {
+      border-top: 3px solid;
+      background: black;
+    }
+    .queries{
+      width: 80%;
+      margin: auto;
+  }
+  .submitButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    background-color: rgb(46, 44, 44);
     color: white;
-    padding: 20px 20px;
-    margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: medium;
     font-weight: 600;
+    margin: auto;
   }
-  
-  button:hover {
-    background-color: #1abc9c;
-  }
-  div {
-    border-radius: 5px;
-    font-family: Helvetica, sans-serif;
-    padding: 14px;
-  }
-  .header {
-  padding: 2px;
+  a:link, a:visited {
+    background-color: rgb(46, 44, 44);
+    color: white;
+  padding: 20px 20px;
   text-align: center;
-  background: #1abc9c;
-  color: white;
+  text-decoration: none;
 }
-  .header2 {
-  padding: 10px;
-  background: #1abc9c;
-  color: white;
+
+    @media screen and (max-width: 700px) {
   
-}
-.info{
-  padding: 2px;
-  background: #169c81;
-  color: white;
+      input[type=text],
+      select {
+        width: 90%;
+        padding: 12px 20px;
+        margin: 8px 0px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
   
-}
+      label {
+        width: 80%;
+  
+      }
+    }
   </style>
 
 
 <div class="header">
   <h1>Complexity Assessment</h1>
+  <hr class="solid">
    
 </div>
-<br>
+<div class="header">
+    <h2>Details</h2>
 
+  </div>
 <div class="info">
     <h4 >Use Case Name -  {{ val[17] }}</h4>
     <h4>Business Stream -  {{ val[18] }}</h4>
     <h4>Business Analyst -  {{ val[19] }}</h4>
     <h4>Senior Developer of your Business Stream -  {{ val[20] }}</h4>
+    
 </div>
+<div class="header"><hr class="solid"></div>
+<div class="header">
+    <h2>Queries</h2>
+
+  </div>
   
 <form class="px-5 p-3" action="predict" method="post">
 
   <div class="mb-3 p-1">
     <label for="labelName1" class="form-label">
-        Q1) Please Enter 1 if the Application used in your Use Case is in the Exception List, else please Enter 0 -
+        Enter 1 if the Application used in your Use Case is in the Exception List, else please Enter 0
     </label>
     <input name="q1" type="text" class="form-control" id="labelName1" aria-describedby="labelName1" value="{{ val[0]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName2" class="form-label">Q2) Please Enter the Number of GUI screens to be traversed - </label>
-    <input name="q2" type="text" class="form-control" id="labelName2" aria-describedby="labelName2" value="{{ val[1]}}" readonly>
+    <label for="labelName2" class="form-label">Number of GUI screens to be traversed</label>
+    <input name="q2" type="text" class="form-conrol" id="labelName2" aria-describedby="labelName2" value="{{ val[1]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName3" class="form-label">Q3) Please Enter The Number of Manual Steps (Click, Read and Write) -</label>
+    <label for="labelName3" class="form-label">Number of Manual Steps (Click, Read and Write)</label>
     <input name="q3" type="text" class="form-control" id="labelName3" aria-describedby="labelName3" value="{{ val[2]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName4" class="form-label">Q4) Enter the Time taken for each transaction in minutes (average out any pre and post activity with the number of transactions) -</label>
+    <label for="labelName4" class="form-label">Time taken for each transaction in minutes (average out any pre and post activity with the number of transactions)</label>
     <input name="q4" type="text" class="form-control" id="labelName4" aria-describedby="labelName4" value="{{ val[3]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName5" class="form-label">Q5) Please enter the Type of Target Application Access. Enter 0 if It is Direct Application and 1 if it is Remote -</label>
+    <label for="labelName5" class="form-label">Enter the Type of Target Application Access. Enter 0 if It is Direct Application and 1 if it is Remote</label>
     <input name="q5" type="text" class="form-control" id="labelName5" aria-describedby="labelName5" value="{{ val[4]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName6" class="form-label">Q6) Please Enter the Expected Volume of Transactions per run (Average per run, divide by the number of transactions) -</label>
+    <label for="labelName6" class="form-label">Expected Volume of Transactions per run (Average per run, divide by the number of transactions)</label>
     <input name="q6" type="text" class="form-control" id="labelName6" aria-describedby="labelName6" value="{{ val[5]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName7" class="form-label">Q7) Please Enter the Expected FTE workload (1,2,3, etc.) - </label>
+    <label for="labelName7" class="form-label">Enter the Expected FTE workload (1,2,3, etc.)</label>
     <input name="q7" type="text" class="form-control" id="labelName7" aria-describedby="labelName7" value="{{ val[6]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName8" class="form-label">Q8) Enter 0 if there is no strict SLA, 1 if there is SLA -</label>
+    <label for="labelName8" class="form-label">Enter 0 if there is no strict SLA, 1 if there is SLA</label>
     <input name="q8" type="text" class="form-control" id="labelName8" aria-describedby="labelName8" value="{{ val[7]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName9" class="form-label">Q9) Please Enter The Stability of the Target Applications, Enter 0 if the applications are high stability and 1 if it is Low -</label>
+    <label for="labelName9" class="form-label">Stability of the Target Applications, Enter 0 if the applications are high stability and 1 if it is Low</label>
     <input name="q9" type="text" class="form-control" id="labelName9" aria-describedby="labelName9" value="{{ val[8]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName10" class="form-label"> Q10) Please Enter the Number of known business workflows -</label>
+    <label for="labelName10" class="form-label">Number of known business workflows</label>
     <input name="q10" type="text" class="form-control" id="labelName10" aria-describedby="labelName10" value="{{ val[9]}}" readonly>
   </div>
   
   <div class="mb-3 p-1">
-    <label for="labelName11" class="form-label">Q11) Please Enter the Number of known business exceptions -</label>
+    <label for="labelName11" class="form-label">Number of known business exceptions</label>
     <input name="q11" type="text" class="form-control" id="labelName11" aria-describedby="labelName11" value="{{ val[10]}}" readonly>
   </div>
 
   <div class="mb-3 p-1">
-    <label for="labelName12" class="form-label">Q12) Does your Use Case Require NLP, ML, API, iOCR, Interact and other integration with RPA? Please Enter 1 if Yes, else Enter 0 -</label>
+    <label for="labelName12" class="form-label">Does your Use Case Require NLP, ML, API, iOCR, Interact and other integration with RPA? Please Enter 1 if Yes, else Enter 0</label>
     <input name="q12" type="text" class="form-control" id="labelName12" aria-describedby="labelName12" value="{{ val[11]}}" readonly>
   </div>
 
   <div class="mb-3 p-1">
-    <label for="labelName13" class="form-label">Q13) Do you require any backend scripting? Enter 1 for yes and 0 for No -</label>
+    <label for="labelName13" class="form-label">Do you require any backend scripting? Enter 1 for yes and 0 for No</label>
     <input  name="q13" type="text" class="form-control" id="labelName13" aria-describedby="labelName13" value="{{ val[12]}}" readonly>
   </div>
 
 </div>
 
+</form>
+
+<div class="header"><hr class="solid"><h2>Prediction</h2></div>
+
 <div class="header2">
-<h2>Prediction</h2>
 <h4>{{ val[14] }}</h4>
 <h4>{{ val[15] }}</h4>
 <h4>The Overall Complexity of the use case predicted is {{ val[13] }}</h4>
 <h4>{{ val[16] }}</h4>
 </div>
 
-<div class="reset-btn">
-  <button>
-    <a href="/">reset</a>
-  </button>
-</div>
+<div>
 
+    <button class="submitButton">
+  
+      <a href="/">RESET</a>
+  
+    </button>
+  
+  </div>
