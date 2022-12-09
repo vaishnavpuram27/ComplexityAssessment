@@ -5,13 +5,19 @@
   <title>Complexity Assessment</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-  input[type=text],
+  body{
+    background-color: #FAF8F1;
+  }
+  input,
   select {
     width: 25%;
     padding: 12px 20px;
@@ -20,7 +26,7 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
-    background-color: rgb(243, 243, 243);
+    background-color: #FAF8F1;
   }
 
   input[type=submit] {
@@ -66,24 +72,27 @@
     font-weight: bold;
     color: rgb(49, 49, 49);
   }
+
   hr.solid {
     border-top: 3px solid;
     background: black;
   }
-  .queries{
+
+  .queries {
     width: 80%;
     margin: auto;
-}
-.submitButton{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  }
+
+  .submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 
   @media screen and (max-width: 700px) {
 
-    input[type=text],
+    input[type=number],
     select {
       width: 90%;
       padding: 12px 20px;
@@ -98,6 +107,36 @@
       width: 80%;
 
     }
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: small;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    width: 1500%;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    transition: all 0.3s ease
   }
 </style>
 
@@ -154,86 +193,181 @@
       <h2>Queries</h2>
     </div>
 
- <div class="queries">
-    <div class="inputField">
-      <label for="labelName1" class="form-label">
-        Enter 1 if the Application used in your Use Case is in the Exception List, else please Enter 0
-      </label>
-      <input name="q1" type="text" class="form-control" id="labelName1" aria-describedby="labelName1" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName2" class="form-label">Number of GUI screens to be traversed</label>
-      <input name="q2" type="text" class="form-control" id="labelName2" aria-describedby="labelName2" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName3" class="form-label">Number of Manual Steps (Click, Read and Write)
+    <div class="queries">
+      <div class="inputField">
+        <label for="labelName1" class="form-label">
+           Application used in your Use Case is in the Exception List.
         </label>
-      <input name="q3" type="text" class="form-control" id="labelName3" aria-describedby="labelName3" required>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Kindly refer the Sheet - Application Directory and check if it is considered complex
+            or not. In case you do not find your Application listed and it has never been used in any use till date ----
+            Please consider it Complex
+
+            <br><br>
+            Enter the response value as 1 if Yes else Enter 0</span>
+        </div>
+
+        <!-- <input name="q1" type="text" class="form-control" id="labelName1" aria-describedby="labelName1" required> -->
+        <select name="q1" value="q1" >
+          <option>Select</option>
+          <option>True</option>
+          <option>False</option>
+          </select>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName2" class="form-label">Number of GUI screens to be traversed</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Please Enter the Number of GUI Screens which will be traversed in your use case. <br><br>
+
+            Example: Login screeen of an application is treated as one GUI screen even if we interact with multiple elements on it (like Username, password and submit button)</span>
+        </div>
+        <input name="q2" type="number" class="form-control" id="labelName2" aria-describedby="labelName2" required>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName3" class="form-label">Number of Manual Steps (Click, Read and Write)
+        </label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Please Note :Each activity is treated as separate manual step<br><br>
+
+            Ex: Enter Username, password and click on Submit button in Login screen of an application is 3 steps</span>
+        </div>
+        <input name="q3" type="number" class="form-control" id="labelName3" aria-describedby="labelName3" required>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName4" class="form-label">Time taken for each transaction in minutes </label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Each transaction is one complete work item that the human user works. While Entering the value please average out any pre and post activity with the number of transactions
+            <br><br>
+            Example : If input for the use case is an email, then one email is treated as a single transaction (Or) every order processed in SAP</span>
+        </div>
+        <input name="q4" type="number" class="form-control" id="labelName4" aria-describedby="labelName4" required>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName5" class="form-label">Type of Target Application</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Type of target Application Access</span>
+        </div>
+        <!-- <input name="q5" type="text" class="form-control" id="labelName5" aria-describedby="labelName5" required> -->
+        <select name="q5" value="q5" >
+          <option>Select</option>
+          <option>Direct Access</option>
+          <option>Remote / Citrix Access</option>
+          </select>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName6" class="form-label">Volume of Transactions</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Please enter the Expected Volume of Transactions per run . While entering, please Average per run, divide by the number of transactions<br><br>
+
+            Example :If we have 40 transactions per day to be processed, and bot runs <br>
+            1) once a day then transaction per run is 40<br>
+            2) 4 times a day then transaction per run is 10</span>
+        </div>
+        <input name="q6" type="number" class="form-control" id="labelName6" aria-describedby="labelName6" required>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName7" class="form-label">Expected FTE Workload</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Please Enter the expected FTE Workload Reduction(Eg: 1,2,3,....)</span>
+        </div>
+        <input name="q7" type="number" class="form-control" id="labelName7" aria-describedby="labelName7" step=".01" required>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName8" class="form-label">Strict SLA or not</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Please check for strict SLA </span>
+        </div>
+        <!-- <input name="q8" type="text" class="form-control" id="labelName8" aria-describedby="labelName8" required> -->
+        <select name="q8" value="q8" >
+          <option>Select</option>
+          <option>True</option>
+          <option>False</option>
+          </select>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName9" class="form-label">Stability of the Target Applications</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Stabality of the Target Application is High or Low</span>
+        </div>
+        <!-- <input name="q9" type="text" class="form-control" id="labelName9" aria-describedby="labelName9" required> -->
+        <select name="q9" value="q9" >
+          <option>Select</option>
+          <option>Low</option>
+          <option>High</option>
+          </select>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName10" class="form-label">Number of known business workflows</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Please Enter the number of Decision points that deviates from the main flow of the process with a different end state.<br><br>
+
+            Example: If in a use case, an order is either approved or rejected based on certain validations. Here we have two end states for an order processed</span>
+        </div>
+        <input name="q10" type="number" class="form-control" id="labelName10" aria-describedby="labelName10" required>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName11" class="form-label">Number of known business exceptions</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Please Enter the number of Business Exceptions identified for your use case</span>
+        </div>
+        <input name="q11" type="number" class="form-control" id="labelName11" aria-describedby="labelName11" required>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName12" class="form-label">Does your Use Case Require NLP, ML, API, iOCR, Interact and other
+          integration with RPA?</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Please Note, Integration with API will be considered as NO if the API is already created and just needs to be used (proper documentation provided)</span>
+        </div>
+        <!-- <input name="q12" type="text" class="form-control" id="labelName12" aria-describedby="labelName12" required> -->
+        <select name="q12" value="q12" >
+          <option>Select</option>
+          <option>True</option>
+          <option>False</option>
+          </select>
+      </div>
+
+      <div class="inputField">
+        <label for="labelName13" class="form-label">Do you require any backend scripting?</label>
+        <div class="tooltip">
+          <span class="fa fa-info-circle"></span>
+          <span class="tooltiptext">Example : Usage of Javascript, SQL Quering, SAP scripting etc.</span>
+        </div>
+        <!-- <input name="q13" type="text" class="form-control" id="labelName13" aria-describedby="labelName13" required> -->
+        <select name="q13" value="q13" >
+          <option>Select</option>
+          <option>True</option>
+          <option>False</option>
+          </select>
+      </div>
     </div>
 
-    <div class="inputField">
-      <label for="labelName4" class="form-label">Time taken for each transaction in minutes (average out
-        any pre and post activity with the number of transactions)</label>
-      <input name="q4" type="text" class="form-control" id="labelName4" aria-describedby="labelName4" required>
-    </div>
 
-    <div class="inputField">
-      <label for="labelName5" class="form-label">Enter the Type of Target Application Access. Enter 0 if It
-        is Direct Application and 1 if it is Remote</label>
-      <input name="q5" type="text" class="form-control" id="labelName5" aria-describedby="labelName5" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName6" class="form-label">Expected Volume of Transactions per run (Average
-        per run, divide by the number of transactions)</label>
-      <input name="q6" type="text" class="form-control" id="labelName6" aria-describedby="labelName6" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName7" class="form-label">Enter the Expected FTE workload (1,2,3, etc.)</label>
-      <input name="q7" type="text" class="form-control" id="labelName7" aria-describedby="labelName7" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName8" class="form-label">Enter 0 if there is no strict SLA, 1 if there is SLA</label>
-      <input name="q8" type="text" class="form-control" id="labelName8" aria-describedby="labelName8" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName9" class="form-label">Stability of the Target Applications, Enter 0 if
-        the applications are high stability and 1 if it is Low</label>
-      <input name="q9" type="text" class="form-control" id="labelName9" aria-describedby="labelName9" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName10" class="form-label">Number of known business workflows</label>
-      <input name="q10" type="text" class="form-control" id="labelName10" aria-describedby="labelName10" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName11" class="form-label">Number of known business exceptions</label>
-      <input name="q11" type="text" class="form-control" id="labelName11" aria-describedby="labelName11" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName12" class="form-label">Does your Use Case Require NLP, ML, API, iOCR, Interact and other
-        integration with RPA? Please Enter 1 if Yes, else Enter 0</label>
-      <input name="q12" type="text" class="form-control" id="labelName12" aria-describedby="labelName12" required>
-    </div>
-
-    <div class="inputField">
-      <label for="labelName13" class="form-label">Do you require any backend scripting? Enter 1 for yes and 0 for
-        No</label>
-      <input name="q13" type="text" class="form-control" id="labelName13" aria-describedby="labelName13" required>
-    </div>
+    <input name="submit" type="submit" value="SUBMIT" class="submitButton">
+  </form>
   </div>
-  
-  
-  <input name="submit" type="submit" value="SUBMIT" class="submitButton">
-</form>
-    </div>
 
 </body>
 
